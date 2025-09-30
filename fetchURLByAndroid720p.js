@@ -1,4 +1,4 @@
-import { dataList } from "./utils/fetchList.js"
+﻿import { dataList } from "./utils/fetchList.js"
 import { getAndroidURL720p } from "./utils/androidURL.js"
 import { appendFile, writeFile } from "./utils/fileUtil.js"
 import { updatePlaybackData } from "./utils/playback.js"
@@ -19,10 +19,10 @@ async function fetchURLByAndroid() {
   const playbackFile = process.cwd() + '/playback.xml'
   writeFile(playbackFile,
     `<?xml version="1.0" encoding="UTF-8"?>\n` +
-    `<tv generator-info-name="Tak" generator-info-url="https://github.com/develop202/migu_video/">\n`)
+    `<tv generator-info-name="Tak" generator-info-url="https://github.com/cloudplains/migu_live202509/">\n`)
 
   // 写入开头
-  appendFile(path, `#EXTM3U x-tvg-url="https://gh-proxy.com/https://raw.githubusercontent.com/develop202/migu_video/refs/heads/main/playback.xml" catchup="append" catchup-source="&playbackbegin=\${(b)yyyyMMddHHmmss}&playbackend=\${(e)yyyyMMddHHmmss}"\n`)
+  appendFile(path, `#EXTM3U x-tvg-url="https://raw.githubusercontent.com/cloudplains/migu_live202509/main/playback.xml" catchup="append" catchup-source="&playbackbegin=\${(b)yyyyMMddHHmmss}&playbackend=\${(e)yyyyMMddHHmmss}"\n`)
 
   // 分类列表
   for (let i = 0; i < datas.length; i++) {
