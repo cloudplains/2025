@@ -9807,25 +9807,19 @@
     <programme channel="嘉佳卡通" start="20250930060400 +0800" stop="20250930080000 +0800">
         <title lang="zh">开心超人之星际联盟</title>
     </programme>
-    <programme channel="嘉佳卡通" start="20250930080000 +0800" stop="20250930110600 +0800">
-        <title lang="zh">神奇阿呦</title>
+    <programme channel="嘉佳卡通" start="20250930080000 +0800" stop="20250930110400 +0800">
+        <title lang="zh">贝肯熊</title>
     </programme>
-    <programme channel="嘉佳卡通" start="20250930110600 +0800" stop="20250930113200 +0800">
+    <programme channel="嘉佳卡通" start="20250930110400 +0800" stop="20250930113000 +0800">
         <title lang="zh">百变校巴(十七)</title>
     </programme>
-    <programme channel="嘉佳卡通" start="20250930113200 +0800" stop="20250930131200 +0800">
-        <title lang="zh">猪猪侠之竞速小英雄(二)</title>
+    <programme channel="嘉佳卡通" start="20250930113000 +0800" stop="20250930131000 +0800">
+        <title lang="zh">猪猪侠之竞速小英雄(一)</title>
     </programme>
-    <programme channel="嘉佳卡通" start="20250930131200 +0800" stop="20250930131500 +0800">
-        <title lang="zh">嗨!小喇叭之赤坎老街研学</title>
-    </programme>
-    <programme channel="嘉佳卡通" start="20250930131500 +0800" stop="20250930131600 +0800">
+    <programme channel="嘉佳卡通" start="20250930131000 +0800" stop="20250930131100 +0800">
         <title lang="zh">2025遇见中华诗词之美</title>
     </programme>
-    <programme channel="嘉佳卡通" start="20250930131600 +0800" stop="20250930140000 +0800">
-        <title lang="zh">猪猪侠之竞速小英雄(二)</title>
-    </programme>
-    <programme channel="嘉佳卡通" start="20250930140000 +0800" stop="20250930160000 +0800">
+    <programme channel="嘉佳卡通" start="20250930131100 +0800" stop="20250930220100 +0800">
         <title lang="zh">猪猪侠之竞速小英雄(一)</title>
     </programme>
     <channel id="经典动画大集合">
