@@ -1,45 +1,53 @@
 ﻿name: Fetch Migu Live URLs
 
 on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
   schedule:
     - cron: '0 */2 * * *'  # 每2小时运行一次
+  workflow_dispatch:  # 允许手动触发
 
 jobs:
   fetch-urls:
     runs-on: ubuntu-latest
-    
+
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
-      
+      with:
+        fetch-depth: 0
+        token: ${{ secrets.GITHUB_TOKEN }}
+        ssh-strict: true
+        persist-credentials: true
+        clean: true
+
     - name: Setup Node.js
       uses: actions/setup-node@v4
       with:
         node-version: '21.5.0'
         cache: 'npm'
-        
+
     - name: Install dependencies
       run: |
         npm config set registry https://registry.npmmirror.com
         npm install
-        
+
     - name: Run fetch script
       run: node fetchURLByAndroid720p.js
       env:
         # 如果需要，在这里添加环境变量
         # USERID: ${{ secrets.USERID }}
         # MIGU_TOKEN: ${{ secrets.MIGU_TOKEN }}
-        
+
     - name: Commit and push changes
       run: |
-        git config --local user.name "GitHub Actions"
+        git config --local user.name "github-actions[bot]"
         git config --local user.email "actions@github.com"
         git add .
-        git diff --quiet && git diff --staged --quiet || git commit -m "Update by GitHub Actions"
-        git push
+        if git diff --staged --quiet; then
+          echo "No changes to commit"
+        else
+          git commit -m "🚀 AutoUpdate $(date +'%Y%m%d_%H%M') - 更新咪咕直播源"
+          git pull origin main --rebase
+          git push origin main
+        fi
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
