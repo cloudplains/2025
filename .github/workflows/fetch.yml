@@ -4,50 +4,58 @@ on:
   schedule:
     - cron: '0 */2 * * *'  # 每2小时运行一次
   workflow_dispatch:  # 允许手动触发
+  push:
+    branches: [ main ]
 
 jobs:
   fetch-urls:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
+    - name: Checkout code
       uses: actions/checkout@v4
       with:
-        fetch-depth: 0
         token: ${{ secrets.GITHUB_TOKEN }}
-        ssh-strict: true
-        persist-credentials: true
-        clean: true
 
     - name: Setup Node.js
       uses: actions/setup-node@v4
       with:
-        node-version: '21.5.0'
+        node-version: '18'  # 使用更稳定的 Node.js 18
         cache: 'npm'
 
     - name: Install dependencies
       run: |
         npm config set registry https://registry.npmmirror.com
-        npm install
+        npm ci  # 使用 ci 而不是 install，确保依赖一致性
+
+    - name: Create necessary files
+      run: |
+        # 确保必要的文件存在
+        if [ ! -f "package.json" ]; then
+          echo '{"type":"module","dependencies":{"axios":"^1.9.0","crypto-js":"^4.2.0"}}' > package.json
+        fi
 
     - name: Run fetch script
-      run: node fetchURLByAndroid720p.js
-      env:
-        # 如果需要，在这里添加环境变量
-        # USERID: ${{ secrets.USERID }}
-        # MIGU_TOKEN: ${{ secrets.MIGU_TOKEN }}
+      run: |
+        # 检查脚本文件是否存在
+        if [ -f "fetchURLByAndroid720p.js" ]; then
+          node fetchURLByAndroid720p.js
+        else
+          echo "fetchURLByAndroid720p.js not found, listing files:"
+          ls -la
+          exit 1
+        fi
+
+    - name: Check for changes
+      id: git-check
+      run: |
+        git diff --exit-code || echo "changes=true" >> $GITHUB_OUTPUT
 
     - name: Commit and push changes
+      if: steps.git-check.outputs.changes == 'true'
       run: |
         git config --local user.name "github-actions[bot]"
-        git config --local user.email "actions@github.com"
+        git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
         git add .
-        if git diff --staged --quiet; then
-          echo "No changes to commit"
-        else
-          git commit -m "🚀 AutoUpdate $(date +'%Y%m%d_%H%M') - 更新咪咕直播源"
-          git pull origin main --rebase
-          git push origin main
-        fi
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        git commit -m "🤖 Auto update: $(date +'%Y-%m-%d %H:%M')"
+        git push
