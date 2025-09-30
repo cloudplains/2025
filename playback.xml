@@ -114,10 +114,10 @@
     <programme channel="CCTV1综合" start="20250930140000 +0800" stop="20250930143430 +0800">
         <title lang="zh">晚间新闻</title>
     </programme>
-    <programme channel="CCTV1综合" start="20250930143430 +0800" stop="20250930152900 +0800">
-        <title lang="zh">踏歌行-2</title>
+    <programme channel="CCTV1综合" start="20250930143430 +0800" stop="20250930152100 +0800">
+        <title lang="zh">开讲啦-2025-30</title>
     </programme>
-    <programme channel="CCTV1综合" start="20250930152900 +0800" stop="20250930155900 +0800">
+    <programme channel="CCTV1综合" start="20250930152100 +0800" stop="20250930155900 +0800">
         <title lang="zh">非遗里的中国（第三季）-3</title>
     </programme>
     <channel id="CCTV2财经">
