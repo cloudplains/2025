@@ -36,12 +36,15 @@ jobs:
         fi
 
     - name: Run fetch script
+      env:
+        USERID: ${{ secrets.USERID }}
+        MIGU_TOKEN: ${{ secrets.MIGU_TOKEN }}
       run: |
         # 检查脚本文件是否存在
-        if [ -f "fetchURLByAndroid720p.js" ]; then
-          node fetchURLByAndroid720p.js
+        if [ -f "fetchURLByAndroidV2.js" ]; then
+          node fetchURLByAndroidV2.js
         else
-          echo "fetchURLByAndroid720p.js not found, listing files:"
+          echo "fetchURLByAndroidV2.js not found, listing files:"
           ls -la
           exit 1
         fi
