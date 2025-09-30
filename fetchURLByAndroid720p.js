@@ -1,5 +1,5 @@
 ﻿import { dataList } from "./utils/fetchList.js"
-import { getAndroidURL720p } from "./utils/androidURL.js"
+import { getAndroidURL } from "./utils/androidURL.js"
 import { appendFile, writeFile } from "./utils/fileUtil.js"
 import { updatePlaybackData } from "./utils/playback.js"
 
@@ -36,8 +36,8 @@ async function fetchURLByAndroid() {
         console.log(`playback.xml更新失败`)
       }
 
-      // 获取链接
-      const resObj = await getAndroidURL720p(data[j].pID)
+      // 获取链接 - 修改这一行：使用新版getAndroidURL函数
+      const resObj = await getAndroidURL("", "", data[j].pID, 2)
       if (resObj.url == "") {
         console.log(`${data[j].name}：节目调整，暂不提供服务`)
         continue
