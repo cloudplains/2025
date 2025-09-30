@@ -567,10 +567,10 @@
     <programme channel="CCTV5+体育赛事" start="20250930020000 +0800" stop="20250930030000 +0800">
         <title lang="zh">实况录像-2025年皮划艇激流回旋世界杯 德国站</title>
     </programme>
-    <programme channel="CCTV5+体育赛事" start="20250930030000 +0800" stop="20250930070500 +0800">
+    <programme channel="CCTV5+体育赛事" start="20250930030000 +0800" stop="20250930073000 +0800">
         <title lang="zh">WTT大满贯中国站-混双1/8决赛 、单打第2轮1</title>
     </programme>
-    <programme channel="CCTV5+体育赛事" start="20250930070500 +0800" stop="20250930083000 +0800">
+    <programme channel="CCTV5+体育赛事" start="20250930073000 +0800" stop="20250930083000 +0800">
         <title lang="zh">实况录像-2025年世界男排锦标赛 半决赛  2</title>
     </programme>
     <programme channel="CCTV5+体育赛事" start="20250930083000 +0800" stop="20250930090000 +0800">
@@ -8187,7 +8187,7 @@
     <programme channel="陕西新闻资讯频道" start="20250930150000 +0800" stop="20250930152900 +0800">
         <title lang="zh">陕西新闻联播</title>
     </programme>
-    <programme channel="陕西新闻资讯频道" start="20250930152900 +0800" stop="20250930165900 +0800">
+    <programme channel="陕西新闻资讯频道" start="20250930152900 +0800" stop="20250930160000 +0800">
         <title lang="zh">星光剧场：微笑妈妈 55-56</title>
     </programme>
     <channel id="财富天下">
